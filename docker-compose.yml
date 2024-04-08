@@ -1,5 +1,5 @@
 services:
   test:
-    image: ghcr.io/connormckelvey/libreoffice-headless:latest
+    image: "${DOCKER_IMAGE_REPOSITORY:-libreoffice-headless}:${DOCKER_IMAGE_TAG:-unstable}"
     volumes:
       - ${PWD}/test:/test:rw

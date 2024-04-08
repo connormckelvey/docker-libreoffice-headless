@@ -1,0 +1,17 @@
+name: Test Image
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  push_to_registry:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: 'Run Tests' 
+        run: make test
+          

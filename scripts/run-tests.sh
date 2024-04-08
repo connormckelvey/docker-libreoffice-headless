@@ -1,32 +1,17 @@
-#!/bin/sh -ex
+#!/bin/sh -e
 
-scripts_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+scripts_dir=$(dirname "$0")
 project_dir=$(dirname "$scipts_dir")
 
 _test() {
     input=$1
     output=$2
+    outputDir="${project_dir}/test/output"
     shift 2
 
-    # Output the arguments
-    echo "input: $input"
-    echo "output: $output, $outputDir"
-    echo "Rest: $@"
-
-    find . ! -name 'file.txt' -type f -exec rm -f {} +
+    find "${outputDir}" ! -name '.gitkeep' -type f -exec rm -f {} +
     docker-compose run test --convert-to pdf:writer_pdf_Export --outdir /test/output /test/input/$input
-    test -f $output;
+    test -f "${outputDir}/${output}"
 }
 
-
-# docker-compose run test --convert-to pdf:writer_pdf_Export --outdir /test/output /test/input/test.docx
-
-if _test "test.docx" "test.pdf"; then
-    echo "ok"
-else
-    echo "WTF"
-fi;
-
-# if test -f /path/to/file; then
-#   echo "File exists."
-# fi
+_test "test.docx" "test.pdf";

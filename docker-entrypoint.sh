@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 main() {
-    libreoffice --headless "$@"
+    libreoffice --headless $@
 }
 
-main "$@"
+main $@
