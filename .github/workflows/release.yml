@@ -22,4 +22,6 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
       - name: 'Build and push'
-        run: make all
+        # run: make all
+        run: |
+          echo $DOCKER_IMAGE_REGISTRY:$DOCKER_IMAGE_TAG
