@@ -8,7 +8,7 @@ default: all
 all: build test push
 
 build:
-	docker build -t $(DOCKER_IMAGE_REPOSITORY):$(DOCKER_IMAGE_TAG) .
+	docker build -q -t $(DOCKER_IMAGE_REPOSITORY):$(DOCKER_IMAGE_TAG) .
 
 test: build
 	./scripts/run-tests.sh

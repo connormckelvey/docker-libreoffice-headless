@@ -1,7 +1,7 @@
 FROM debian:bookworm-slim
 
-RUN apt update && \
-    apt install -y --no-install-recommends libreoffice
+RUN apt -qq update && \
+    apt -qq install -y --no-install-recommends libreoffice
 
 COPY docker-entrypoint.sh /usr/local/bin/
 

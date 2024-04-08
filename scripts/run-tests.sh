@@ -3,6 +3,9 @@
 scripts_dir=$(dirname "$0")
 project_dir=$(dirname "$scipts_dir")
 
+export DOCKER_IMAGE_REPOSITORY=${DOCKER_IMAGE_REPOSITORY:-libreoffice-headless}
+export DOCKER_IMAGE_TAG=${DOCKER_IMAGE_TAG:-unstable}
+
 _test() {
     input=$1
     output=$2

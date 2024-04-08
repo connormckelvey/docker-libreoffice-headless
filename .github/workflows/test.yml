@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  push_to_registry:
+  test:
     name: Build and Test
     runs-on: ubuntu-latest
     steps:
