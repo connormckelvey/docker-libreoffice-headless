@@ -9,6 +9,7 @@ jobs:
   push-image:
     name: Build and Push
     runs-on: ubuntu-latest
+    permissions: write-all
     env:
       DOCKER_IMAGE_REPOSITORY: ghcr.io/${{github.actor}}/libreoffice-headless
       DOCKER_IMAGE_TAG: ${{github.ref_name}}
