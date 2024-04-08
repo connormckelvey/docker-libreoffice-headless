@@ -10,7 +10,7 @@ release() {
     echo    # move to a new line
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        git commit -m "$name: $message"
+        git commit --allow-empty -m "$name: $message"
         git tag $name
         git push origin $name
     fi
