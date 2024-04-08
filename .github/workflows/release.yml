@@ -10,7 +10,7 @@ jobs:
     name: Build and Push
     runs-on: ubuntu-latest
     env:
-      DOCKER_IMAGE_REGISTRY: ghcr.io/${{github.actor}}/libreoffice-headless
+      DOCKER_IMAGE_REPOSITORY: ghcr.io/${{github.actor}}/libreoffice-headless
       DOCKER_IMAGE_TAG: ${{github.ref_name}}
     steps:
       - name: Checkout repo
@@ -22,7 +22,4 @@ jobs:
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
       - name: 'Build and push'
-        run: |
-          export DOCKER_IMAGE_REGISTRY
-          export DOCKER_IMAGE_TAG
-          make all
+        run: make all
